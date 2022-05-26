@@ -43,9 +43,9 @@ bool update_cloudy_outside(bool var)
   cout <<"Update cloudy_outside"<<endl;
 
   //TODO: Is this the only way to do this? Shouldn't the belief update itself?
-  if(cloudy_outside == true) {
-    eco_mode_available = false;
-  }
+  //if(cloudy_outside == true) {
+  //  eco_mode_available = false;
+  //}
   return cloudy_outside;
 }
 
