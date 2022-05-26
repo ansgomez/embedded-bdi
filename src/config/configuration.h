@@ -45,9 +45,9 @@ public:
   AgentSettings()
   {
     belief_base = BeliefBase(6);
-    event_base = EventBase(6);
+    event_base = EventBase(15);
     plan_base = PlanBase(5);
-    intention_base = IntentionBase(10, 4);
+    intention_base = IntentionBase(15, 15);
 
     //--------------------------------------------------------------------------
 

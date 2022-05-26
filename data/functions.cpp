@@ -12,14 +12,14 @@ bool cloudy_outside = false;
 bool action_turn_on_lights()
 {
   //TODO: SEND BLE PACKET
-  cout <<"**** ACTION **** Agent turn on lights..."<<endl;
+  std::cout <<"**** ACTION **** Agent turn on lights..."<<std::endl;
   return true;
 }
 
 bool action_raise_blinds()
 {
   //TODO: SEND BLE PACKET
-  cout <<"**** ACTION **** Agent raises blinds..."<<endl;
+  std::cout <<"**** ACTION **** Agent raises blinds..."<<std::endl;
   return true;
 }
 
@@ -28,19 +28,19 @@ bool action_raise_blinds()
 bool update_sunny_outside(bool var)
 {
   //TODO: Update based on external ambient light sensor
-  cout <<"Update sunny_outside"<<endl;
+  std::cout <<"Update sunny_outside"<<std::endl;
 
   //TODO: Is this the only way to do this? Shouldn't the belief update itself?
-  if(sunny_outside == true) {
-    eco_mode_available = true;
-  }
+  //if(sunny_outside == true) {
+  //  eco_mode_available = true;
+  //}
   return sunny_outside;
 }
 
 bool update_cloudy_outside(bool var)
 {
   //TODO: Update based on external ambient light sensor
-  cout <<"Update cloudy_outside"<<endl;
+  std::cout <<"Update cloudy_outside"<<std::endl;
 
   //TODO: Is this the only way to do this? Shouldn't the belief update itself?
   //if(cloudy_outside == true) {
@@ -52,27 +52,27 @@ bool update_cloudy_outside(bool var)
 bool update_dark_inside(bool var)
 {
   //TODO: Update based on internal ambient light sensor
-  cout <<"Update dark_inside"<<endl;
+  std::cout <<"Update dark_inside"<<std::endl;
   return dark_inside;
 }
 
 bool update_preserve_conditions(bool var)
 {
   //TODO: Unsure why I need this, isn't it a plan? 
-  cout <<"Update preserve cond"<<endl;
+  std::cout <<"Update preserve cond"<<std::endl;
   return true;
 }
 
 bool update_standard_mode_available(bool var)
 {
   //TODO: Unsure why I need this, isn't it a plan? 
-  cout <<"Update std mode"<<endl;
+  std::cout <<"Update std mode"<<std::endl;
   return standard_mode_available;
 }
 
 bool update_eco_mode_available(bool var)
 {
   //TODO: Unsure why I need this, isn't it a plan? 
-  cout <<"Update eco mode"<<endl;
+  std::cout <<"Update eco mode"<<std::endl;
   return eco_mode_available;
 }
