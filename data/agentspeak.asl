@@ -1,7 +1,11 @@
-!start.
+standard_mode_available.
 
-+!start <- +happy.
++preserve_conditions : dark_inside <- !brighten.
 
-+happy <- !!hello.
++!brighten: eco_mode_available <- raise_blinds.
 
-+!hello <- say_hello.
++!brighten: standard_mode_available <- turn_on_lights.
+
++sunny_outside <- +eco_mode_available.
+
++cloudy_outside <- -eco_mode_available.
