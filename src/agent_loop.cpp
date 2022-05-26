@@ -23,7 +23,9 @@ int main()
 
   while(true)
   {
+    std::cout << "**** New Agent Cycle" << std::endl;
     agent.run();
+    sleep(1);
   }
 
   return 0;
