@@ -6,6 +6,6 @@ standard_mode_available.
 
 +!brighten: standard_mode_available <- !turn_on_lights.
 
-+sunny_outside <- +eco_mode_available.
++sunny_outside <- +eco_mode_available ; !brighten.
 
-+cloudy_outside <- -eco_mode_available.
++cloudy_outside <- -eco_mode_available ; !brighten.
