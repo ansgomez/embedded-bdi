@@ -3,15 +3,15 @@
  *
  * standard_mode_available.
  * 
- * +preserve_conditions : dark_inside <- !!brighten.
+ * +preserve_conditions : dark_inside <- !brighten.
  * 
- * +!brighten: eco_mode_available <- !raise_blinds.
+ * +!brighten: eco_mode_available <- raise_blinds.
  * 
- * +!brighten: standard_mode_available <- !turn_on_lights.
+ * +!brighten: standard_mode_available <- turn_on_lights.
  * 
- * +sunny_outside <- +eco_mode_available ; !brighten.
+ * +sunny_outside <- +eco_mode_available;!brighten.
  * 
- * +cloudy_outside <- -eco_mode_available ; !brighten.
+ * +cloudy_outside <- -eco_mode_available;!brighten.
  */ 
 
 #ifndef CONFIGURATION_H_
@@ -90,7 +90,7 @@ public:
     context_0.add_context(cond_0_0);
 
     Proposition prop_0_body_0(6);
-    BodyInstruction inst_0_0(BodyType::GOAL, prop_0_body_0, EventOperator::GOAL_ACHIEVE);
+    BodyInstruction inst_0_0(BodyType::GOAL, prop_0_body_0, EventOperator::GOAL_ADDITION);
     body_0.add_instruction(inst_0_0);
 
     Plan plan_0(EventOperator::BELIEF_ADDITION, prop_0, &context_0, &body_0);
@@ -107,7 +107,7 @@ public:
     context_1.add_context(cond_1_0);
 
     Proposition prop_1_body_0(7);
-    BodyInstruction inst_0_1(BodyType::GOAL, prop_1_body_0, EventOperator::GOAL_ADDITION);
+    BodyInstruction inst_0_1(BodyType::ACTION, prop_1_body_0, action_raise_blinds);
     body_1.add_instruction(inst_0_1);
 
     Plan plan_1(EventOperator::GOAL_ADDITION, prop_1, &context_1, &body_1);
@@ -124,7 +124,7 @@ public:
     context_2.add_context(cond_2_0);
 
     Proposition prop_2_body_0(8);
-    BodyInstruction inst_0_2(BodyType::GOAL, prop_2_body_0, EventOperator::GOAL_ADDITION);
+    BodyInstruction inst_0_2(BodyType::ACTION, prop_2_body_0, action_turn_on_lights);
     body_2.add_instruction(inst_0_2);
 
     Plan plan_2(EventOperator::GOAL_ADDITION, prop_2, &context_2, &body_2);
