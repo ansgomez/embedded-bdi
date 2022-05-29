@@ -56,23 +56,28 @@ bool update_dark_inside(bool var)
   return dark_inside;
 }
 
+/*
 bool update_preserve_conditions(bool var)
 {
   //TODO: Unsure why I need this, isn't it a plan? 
   std::cout <<"Update preserve cond"<<std::endl;
   return true;
 }
-
+*/
+/*
 bool update_standard_mode_available(bool var)
 {
   //TODO: Unsure why I need this, isn't it a plan? 
   std::cout <<"Update std mode"<<std::endl;
   return standard_mode_available;
 }
+*/
 
+/*
 bool update_eco_mode_available(bool var)
 {
   //TODO: Unsure why I need this, isn't it a plan? 
   std::cout <<"Update eco mode"<<std::endl;
   return eco_mode_available;
 }
+*/

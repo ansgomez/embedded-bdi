@@ -5,13 +5,14 @@
  * 
  * +preserve_conditions : dark_inside <- !brighten.
  * 
+ * +sunny_outside <- +eco_mode_available;!brighten.
+ * 
+ * +cloudy_outside <- -eco_mode_available;!brighten.
+ * 
  * +!brighten: eco_mode_available <- raise_blinds.
  * 
  * +!brighten: standard_mode_available <- turn_on_lights.
  * 
- * +sunny_outside <- +eco_mode_available;!brighten.
- * 
- * +cloudy_outside <- -eco_mode_available;!brighten.
  */ 
 
 #ifndef CONFIGURATION_H_
@@ -61,17 +62,17 @@ public:
 
     //--------------------------------------------------------------------------
 
-    Belief belief_eco_mode_available(2, update_eco_mode_available, false);
+    Belief belief_eco_mode_available(2, nullptr, false);
     belief_base.add_belief(belief_eco_mode_available);
 
     //--------------------------------------------------------------------------
 
-    Belief belief_preserve_conditions(3, update_preserve_conditions, false);
+    Belief belief_preserve_conditions(3, nullptr, false);
     belief_base.add_belief(belief_preserve_conditions);
 
     //--------------------------------------------------------------------------
 
-    Belief belief_standard_mode_available(4, update_standard_mode_available, true);
+    Belief belief_standard_mode_available(4, nullptr, true);
     belief_base.add_belief(belief_standard_mode_available);
 
     //--------------------------------------------------------------------------
@@ -98,70 +99,70 @@ public:
 
     //--------------------------------------------------------------------------
 
-    Proposition prop_1(6);
-    context_1 = Context(1);
-    body_1 = Body(1);
+    Proposition prop_1(5);
+    context_1 = Context(0);
+    body_1 = Body(2);
 
-    Proposition prop_1_eco_mode_available(2);
-    ContextCondition cond_1_0(prop_1_eco_mode_available);
-    context_1.add_context(cond_1_0);
-
-    Proposition prop_1_body_0(7);
-    BodyInstruction inst_0_1(BodyType::ACTION, prop_1_body_0, action_raise_blinds);
+    Proposition prop_1_body_0(2);
+    BodyInstruction inst_0_1(BodyType::BELIEF, prop_1_body_0, EventOperator::BELIEF_ADDITION);
     body_1.add_instruction(inst_0_1);
 
-    Plan plan_1(EventOperator::GOAL_ADDITION, prop_1, &context_1, &body_1);
+    Proposition prop_1_body_1(6);
+    BodyInstruction inst_1_1(BodyType::GOAL, prop_1_body_1, EventOperator::GOAL_ADDITION);
+    body_1.add_instruction(inst_1_1);
+
+    Plan plan_1(EventOperator::BELIEF_ADDITION, prop_1, &context_1, &body_1);
     plan_base.add_plan(plan_1);
 
     //--------------------------------------------------------------------------
 
-    Proposition prop_2(6);
-    context_2 = Context(1);
-    body_2 = Body(1);
+    Proposition prop_2(0);
+    context_2 = Context(0);
+    body_2 = Body(2);
 
-    Proposition prop_2_standard_mode_available(4);
-    ContextCondition cond_2_0(prop_2_standard_mode_available);
-    context_2.add_context(cond_2_0);
-
-    Proposition prop_2_body_0(8);
-    BodyInstruction inst_0_2(BodyType::ACTION, prop_2_body_0, action_turn_on_lights);
+    Proposition prop_2_body_0(2);
+    BodyInstruction inst_0_2(BodyType::BELIEF, prop_2_body_0, EventOperator::BELIEF_DELETION);
     body_2.add_instruction(inst_0_2);
 
-    Plan plan_2(EventOperator::GOAL_ADDITION, prop_2, &context_2, &body_2);
+    Proposition prop_2_body_1(6);
+    BodyInstruction inst_1_2(BodyType::GOAL, prop_2_body_1, EventOperator::GOAL_ADDITION);
+    body_2.add_instruction(inst_1_2);
+
+    Plan plan_2(EventOperator::BELIEF_ADDITION, prop_2, &context_2, &body_2);
     plan_base.add_plan(plan_2);
 
     //--------------------------------------------------------------------------
 
-    Proposition prop_3(5);
-    context_3 = Context(0);
-    body_3 = Body(2);
+    Proposition prop_3(6);
+    context_3 = Context(1);
+    body_3 = Body(1);
 
-    Proposition prop_3_body_0(2);
-    BodyInstruction inst_0_3(BodyType::BELIEF, prop_3_body_0, EventOperator::BELIEF_ADDITION);
+    Proposition prop_3_eco_mode_available(2);
+    ContextCondition cond_3_0(prop_3_eco_mode_available);
+    context_3.add_context(cond_3_0);
+
+    Proposition prop_3_body_0(7);
+    BodyInstruction inst_0_3(BodyType::ACTION, prop_3_body_0, action_raise_blinds);
     body_3.add_instruction(inst_0_3);
 
-    Proposition prop_3_body_1(6);
-    BodyInstruction inst_1_3(BodyType::GOAL, prop_3_body_1, EventOperator::GOAL_ADDITION);
-    body_3.add_instruction(inst_1_3);
-
-    Plan plan_3(EventOperator::BELIEF_ADDITION, prop_3, &context_3, &body_3);
+    Plan plan_3(EventOperator::GOAL_ADDITION, prop_3, &context_3, &body_3);
     plan_base.add_plan(plan_3);
 
     //--------------------------------------------------------------------------
 
-    Proposition prop_4(0);
-    context_4 = Context(0);
-    body_4 = Body(2);
+    Proposition prop_4(6);
+    context_4 = Context(1);
+    body_4 = Body(1);
 
-    Proposition prop_4_body_0(2);
-    BodyInstruction inst_0_4(BodyType::BELIEF, prop_4_body_0, EventOperator::BELIEF_DELETION);
+    Proposition prop_4_standard_mode_available(4);
+    ContextCondition cond_4_0(prop_4_standard_mode_available);
+    context_4.add_context(cond_4_0);
+
+    Proposition prop_4_body_0(8);
+    BodyInstruction inst_0_4(BodyType::ACTION, prop_4_body_0, action_turn_on_lights);
     body_4.add_instruction(inst_0_4);
 
-    Proposition prop_4_body_1(6);
-    BodyInstruction inst_1_4(BodyType::GOAL, prop_4_body_1, EventOperator::GOAL_ADDITION);
-    body_4.add_instruction(inst_1_4);
-
-    Plan plan_4(EventOperator::BELIEF_ADDITION, prop_4, &context_4, &body_4);
+    Plan plan_4(EventOperator::GOAL_ADDITION, prop_4, &context_4, &body_4);
     plan_base.add_plan(plan_4);
   }
 

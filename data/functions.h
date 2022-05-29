@@ -17,10 +17,10 @@ bool update_cloudy_outside(bool var);
 
 bool update_dark_inside(bool var);
 
-bool update_standard_mode_available(bool var);
+//bool update_standard_mode_available(bool var);
 
-bool update_eco_mode_available(bool var);
+//bool update_eco_mode_available(bool var);
 
-bool update_preserve_conditions(bool var);
+//bool update_preserve_conditions(bool var);
 
 #endif /* FUNCTIONS_H_ */
