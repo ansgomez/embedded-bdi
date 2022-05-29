@@ -80,7 +80,7 @@ $(BUILD_DIR)/%.cc.o: %.cc
 
 all: tests valgrind agent docs
 
-agent: translate force_agent_update $(BUILD_DIR)/$(AGENT_EXEC)
+agent:  force_agent_update $(BUILD_DIR)/$(AGENT_EXEC)
 
 tests: $(BUILD_DIR)/$(TEST_EXEC)
 
